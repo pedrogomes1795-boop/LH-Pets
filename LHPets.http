@@ -1,0 +1,47 @@
+@LHPets_HostAddress = http://localhost:5053
+
+### 1. Testar listar clientes (GET)
+GET {{LHPets_HostAddress}}/api/clientes
+Accept: application/json
+
+### 2. Cadastrar um novo cliente (POST)
+POST {{LHPets_HostAddress}}/api/clientes
+Content-Type: application/json
+
+{
+  "nome": "Maria Silva",
+  "cpf": "123.456.789-00",
+  "email": "maria@email.com"
+}
+### 3. Testar listar pets (GET)
+GET {{LHPets_HostAddress}}/api/pets
+Accept: application/json
+
+### 4. Cadastrar um novo pet (POST)
+POST {{LHPets_HostAddress}}/api/pets
+Content-Type: application/json
+
+{
+  "nome": "Rex",
+  "raca": "Labrador",
+  "clienteId": 1
+}
+### 5. Consultar cliente por ID existente (ID 1)
+GET {{LHPets_HostAddress}}/api/clientes/1
+Accept: application/json
+
+### 6. Consultar cliente por ID inexistente (ID 99)
+GET {{LHPets_HostAddress}}/api/clientes/99
+Accept: application/json
+
+### 7. Consultar pet por ID existente (ID 1 - Rex)
+GET {{LHPets_HostAddress}}/api/pets/1
+Accept: application/json
+
+### 8. Consultar pet por ID inexistente (ID 99)
+GET {{LHPets_HostAddress}}/api/pets/99
+Accept: application/json
+
+### 9. Listar pets pertencentes a um cliente específico (Ex: Cliente ID 1)
+GET {{LHPets_HostAddress}}/api/pets/cliente/1
+Accept: application/json
